@@ -18,7 +18,7 @@ const Task = ({ task, bgColorClass, handleChangeModalTask }) => {
               : task.assigned_user_id}{' '}
           </span>
         </p>
-        {auth.user.userId == task.assigned_user_id && (
+        {auth.user.userId === task.assigned_user_id && (
           <button
             className='btn btn-link'
             data-bs-toggle='modal'

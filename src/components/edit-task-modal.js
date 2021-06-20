@@ -42,7 +42,7 @@ const EditTaskModal = ({ task, membersList }) => {
             ></button>
           </div>
           <div class='modal-body'>
-            <img src={task.image_url} class='img-fluid' alt='Task IMage' />
+            <img src={task.image_url} class='img-fluid' alt='Task' />
 
             <form onSubmit={handleSubmit} className='mt-3'>
               <div className='mb-3'>

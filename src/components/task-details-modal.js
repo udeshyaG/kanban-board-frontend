@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import CommentsList from '../components/comments-list';
 
@@ -47,7 +47,7 @@ const TaskDetailsModal = ({ task }) => {
             ></button>
           </div>
           <div className='modal-body'>
-            <img src={task.image_url} className='img-fluid' alt='Task IMage' />
+            <img src={task.image_url} className='img-fluid' alt='Task' />
 
             <h5 className='mt-3'>Description</h5>
             <p>{task.description}</p>

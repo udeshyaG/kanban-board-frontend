@@ -35,7 +35,7 @@ const AddTaskModal = ({ membersList, projectId }) => {
     setLoading(true);
 
     try {
-      const response = await axios.post('/api/tasks/new', data, {
+      await axios.post('/api/tasks/new', data, {
         withCredentials: true,
       });
       setLoading(false);

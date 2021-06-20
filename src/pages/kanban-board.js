@@ -16,7 +16,7 @@ const KanbanBoard = () => {
 
   function handleChangeModalTask(taskId) {
     console.log(taskId);
-    setModalTask(tasksList.find((task) => task.task_id == taskId));
+    setModalTask(tasksList.find((task) => task.task_id === taskId));
   }
 
   useEffect(() => {
