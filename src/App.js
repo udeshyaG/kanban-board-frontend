@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Login from './pages/login';
+import Register from './pages/register';
+import MyProjects from './pages/my-projects';
+import AddProject from './pages/add-project';
+import KanbanBoard from './pages/kanban-board';
+import Navbar from './components/navbar';
+import ProtectedRoute from './components/auth/protexted-route';
 
-function App() {
+import AuthContextProvider from './context/AuthContext';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContextProvider>
+      <Router>
+        <div>
+          <Navbar />
+
+          {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+          <Switch>
+            <ProtectedRoute path='/' exact>
+              <MyProjects />
+            </ProtectedRoute>
+
+            <ProtectedRoute path='/kanban-board/:projectId' exact>
+              <KanbanBoard />
+            </ProtectedRoute>
+
+            <ProtectedRoute path='/add-project' exact>
+              <AddProject />
+            </ProtectedRoute>
+
+            <Route path='/login' exact>
+              <Login />
+            </Route>
+            <Route path='/register' exact>
+              <Register />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </AuthContextProvider>
   );
-}
+};
 
 export default App;
